@@ -1,0 +1,11 @@
+.speech {
+  margin-bottom: 20px;
+  min-height: 150px;
+}
+
+.speech .text {
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 16px;
+  color: rgb(124, 126, 108);
+}

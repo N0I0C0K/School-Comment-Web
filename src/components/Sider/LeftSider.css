@@ -1,0 +1,9 @@
+.menu {
+  margin-top: 10px;
+  width: 100%;
+  border-radius: 20px;
+  border-right: none;
+}
+.ant-menu-item {
+  border-radius: 20px !important;
+}
