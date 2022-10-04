@@ -1,26 +1,16 @@
 import './App.css'
-import {
-  createBrowserRouter,
-  RouterProvider,
-  BrowserRouter,
-} from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import MyLeftSider from './components/Sider/LeftSider'
 import Ground from './pages/ground/Ground'
 
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <Ground />,
-  },
-  {
-    path: '/ground',
-    element: <Ground />,
-  },
-])
 const MyContent = () => {
   return (
     <div className='content radius-min'>
-      <RouterProvider router={router} />
+      <Routes>
+        <Route path='/' element={<Ground />}>
+          <Route path='/ground' element={<Ground />} />
+        </Route>
+      </Routes>
     </div>
   )
 }
@@ -39,11 +29,13 @@ const LeftSider = () => {
 
 function App() {
   return (
-    <div className='App'>
-      <LeftSider />
-      <MyContent />
-      <MyFooter />
-    </div>
+    <BrowserRouter>
+      <div className='App'>
+        <LeftSider />
+        <MyContent />
+        <MyFooter />
+      </div>
+    </BrowserRouter>
   )
 }
 

@@ -1,30 +1,34 @@
 import { Avatar, Card, Menu } from 'antd'
 import { BulbOutlined, UserOutlined } from '@ant-design/icons'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import './LeftSider.css'
 const menuData = [
   {
-    key: 'ground',
+    key: '/ground',
     label: '广场',
     icon: <BulbOutlined />,
   },
   {
-    key: 'food',
+    key: '/food',
     label: '食物点评',
     icon: <BulbOutlined />,
   },
 ]
 
 const MyLeftSider = () => {
+  const { pathname } = useLocation()
+  const goto = useNavigate()
   return (
     <>
-      <Card style={{ borderRadius: '20px' }}>
+      <Card className='Sider-Card'>
         <Avatar size={64} icon={<UserOutlined />} />
         <Menu
           className='menu'
           items={menuData}
+          defaultSelectedKeys={[pathname]}
           onClick={(info) => {
-            window.location.href = `/${info.key}`
+            goto(info.key)
+            //window.location.href = `/${info.key}`
           }}
         />
       </Card>

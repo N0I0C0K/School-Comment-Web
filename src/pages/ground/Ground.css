@@ -1,11 +1,36 @@
 .speech {
   margin-bottom: 20px;
-  min-height: 150px;
+  width: 100%;
 }
 
-.speech .text {
+.speech .username {
   display: inline-block;
+  cursor: pointer;
   margin-left: 10px;
   font-size: 16px;
   color: rgb(124, 126, 108);
+}
+
+.ant-image-mask {
+  border-radius: 20px;
+}
+.speech-time {
+  color: rgb(124, 126, 108);
+  width: 100%;
+  text-align: end;
+}
+
+.speech .speech-content {
+  display: block;
+  font-size: 20px;
+  overflow-wrap: break-word;
+}
+.btn-group {
+  text-align: end;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.speech-btn {
+  margin-left: 2%;
 }
