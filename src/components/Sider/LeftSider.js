@@ -21,7 +21,7 @@ const MyLeftSider = () => {
   return (
     <>
       <Card className='Sider-Card'>
-        <Avatar size={64} icon={<UserOutlined />} />
+        <Avatar size={64} src='https://joeschmoe.io/api/v1/random' />
         <Menu
           className='menu'
           items={menuData}
