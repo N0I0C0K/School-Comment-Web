@@ -57,6 +57,7 @@
   width: 40vw;
   padding: 10px;
   background-color: aliceblue;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   min-height: 100vh;
   margin-top: 1%;
 }

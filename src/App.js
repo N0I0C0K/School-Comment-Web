@@ -1,16 +1,13 @@
 import './App.css'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom'
 import MyLeftSider from './components/Sider/LeftSider'
 import Ground from './pages/ground/Ground'
-
+import LoginPage from './pages/login/login'
+import FoodPage from './pages/food/food'
 const MyContent = () => {
   return (
     <div className='content radius-min'>
-      <Routes>
-        <Route path='/' element={<Ground />}>
-          <Route path='/ground' element={<Ground />} />
-        </Route>
-      </Routes>
+      <Outlet />
     </div>
   )
 }
@@ -27,14 +24,27 @@ const LeftSider = () => {
   )
 }
 
+const Home = () => {
+  return (
+    <div className='App'>
+      <LeftSider />
+      <MyContent />
+      <MyFooter />
+    </div>
+  )
+}
+
 function App() {
   return (
     <BrowserRouter>
-      <div className='App'>
-        <LeftSider />
-        <MyContent />
-        <MyFooter />
-      </div>
+      <Routes>
+        <Route path='/' element={<Home />}>
+          <Route path='/' element={<Ground />} />
+          <Route path='ground' element={<Ground />} />
+          <Route path='food' element={<FoodPage />} />
+        </Route>
+        <Route path='/login' element={<LoginPage />} />
+      </Routes>
     </BrowserRouter>
   )
 }

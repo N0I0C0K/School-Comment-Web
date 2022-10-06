@@ -79,7 +79,7 @@ const Speech = () => {
   }
 
   return (
-    <Card style={{ borderRadius: '20px' }} className='speech'>
+    <Card className='speech'>
       <Avatar size='large' icon={<UserOutlined />} />
       <p className='username'>username</p>
       <p className='speech-content'>
@@ -88,9 +88,7 @@ const Speech = () => {
       </p>
       <Image
         width={150}
-        style={{
-          borderRadius: '20px',
-        }}
+        className='speech-img'
         src='https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png'
       />
       <p className='speech-time'>2022-6-6 20:22</p>

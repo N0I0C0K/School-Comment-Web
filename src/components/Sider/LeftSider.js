@@ -1,5 +1,5 @@
 import { Avatar, Card, Menu } from 'antd'
-import { BulbOutlined, UserOutlined } from '@ant-design/icons'
+import { BulbOutlined } from '@ant-design/icons'
 import { useLocation, useNavigate } from 'react-router-dom'
 import './LeftSider.css'
 const menuData = [

@@ -1,0 +1,45 @@
+.food-card {
+  margin-top: 20px;
+  width: 30%;
+  flex-direction: row;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s;
+}
+
+.food-card:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.food-name {
+  margin-top: 10px;
+  font-size: 24px;
+  color: rgb(88, 88, 88);
+  margin-bottom: 0;
+}
+.food-loc {
+  font-size: 8px;
+  color: rgb(134, 134, 134);
+}
+
+.rate-text {
+  font-size: 14px;
+  color: rgb(88, 88, 88);
+}
+.rate-group {
+  margin-top: 30px;
+}
+
+.speech-img {
+  border-radius: 20px;
+}
+
+.ant-image-mask {
+  border-radius: 20px;
+}
+
+.food-page {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
