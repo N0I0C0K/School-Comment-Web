@@ -13,42 +13,6 @@
   align-items: center;
 }
 
-.header {
-  height: 10vh;
-  width: 100%;
-  display: flex;
-}
-
-.nav-list {
-  margin-top: 2%;
-  display: flex;
-  margin-left: 45vw;
-}
-
-.nav-item {
-  list-style: none;
-  margin-left: 2vw;
-  font-size: 24px;
-  transition: all 0.4s;
-}
-
-.nav-item a {
-  text-decoration: none;
-  color: rgb(92, 92, 92);
-}
-
-.nav-item a:hover {
-  color: black;
-}
-
-.logo {
-  width: auto;
-  font-size: 35px;
-  color: rgb(92, 92, 92);
-  cursor: pointer;
-  margin: auto 10%;
-}
-
 .radius-min {
   border-radius: 20px;
 }
@@ -64,7 +28,7 @@
 
 .left-sider {
   position: fixed;
-  left: 17%;
+  left: 16vw;
   top: 2%;
   padding: 10px;
   width: 12vw;

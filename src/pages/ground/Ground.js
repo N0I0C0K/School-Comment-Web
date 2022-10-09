@@ -59,15 +59,22 @@ const CommentList = ({ comments }) => {
   )
 }
 
-const Speech = () => {
+const Speech = ({
+  username,
+  userAvatar,
+  speechContent,
+  speechDate,
+  imgs,
+  comments,
+}) => {
   const [openComment, setOpenComment] = useState(false)
-  const [comments, setComments] = useState([])
+  const [comComments, setComments] = useState(comments)
   const [val, setVal] = useState('')
 
   const AddComment = () => {
     if (val.length <= 0) return
     setComments([
-      ...comments,
+      ...comComments,
       {
         author: 'username',
         avatar: 'https://joeschmoe.io/api/v1/random',
@@ -80,18 +87,14 @@ const Speech = () => {
 
   return (
     <Card className='speech'>
-      <Avatar size='large' icon={<UserOutlined />} />
-      <p className='username'>username</p>
-      <p className='speech-content'>
-        sadasdkhasjkdhajkshdjkashdjkashdkjashdjkashdjkashdjkashsadasdkhasjkdhajkshdjkashdjkashdkjashdjkashdjkashdjkash
-        测试中文
-      </p>
-      <Image
-        width={150}
-        className='speech-img'
-        src='https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png'
-      />
-      <p className='speech-time'>2022-6-6 20:22</p>
+      <Avatar size='large' src={userAvatar} />
+      <p className='username'>{username}</p>
+      <p className='speech-content'>{speechContent}</p>
+      {imgs.map((val) => {
+        return <Image width={150} className='speech-img' src={val} />
+      })}
+
+      <p className='speech-time'>{speechDate}</p>
       <div className='btn-group'>
         <Button className='speech-btn' shape='circle' icon={<LikeOutlined />} />
         <Button
@@ -111,7 +114,7 @@ const Speech = () => {
       {openComment && (
         <div className='comment'>
           <Divider />
-          {comments.length > 0 && <CommentList comments={comments} />}
+          {comComments.length > 0 && <CommentList comments={comComments} />}
           <Comment
             avatar={
               <Avatar src='https://joeschmoe.io/api/v1/random' alt='Han Solo' />
@@ -132,12 +135,32 @@ const Speech = () => {
   )
 }
 
+const testData = [
+  {
+    username: 'nick',
+    userAvatar: 'https://joeschmoe.io/api/v1/random',
+    speechContent: '123123, test\r\naaaaa',
+    speechDate: '2022-10-1 10:22',
+    imgs: [
+      'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+    ],
+    comments: [
+      {
+        author: 'username1',
+        avatar: 'https://joeschmoe.io/api/v1/random',
+        content: '说得好',
+        datetime: '2022-10-1',
+      },
+    ],
+  },
+]
+
 const Ground = () => {
   return (
     <div className='ground'>
-      {[1, 2, 3, 4, 5, 6, 1, 1, 1, 1, 1, 1, 1, 1].map((bal) => (
-        <Speech key={uuid()}></Speech>
-      ))}
+      {testData.map((val) => {
+        return <Speech {...val} />
+      })}
       <BackTop />
     </div>
   )

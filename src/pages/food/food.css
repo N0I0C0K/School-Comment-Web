@@ -1,9 +1,11 @@
 .food-card {
   margin-top: 20px;
   width: 30%;
+  min-width: 200px;
   flex-direction: row;
   border-radius: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
   transition: all 0.3s;
 }
 
