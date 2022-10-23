@@ -4,6 +4,7 @@ import MyLeftSider from './components/Sider/LeftSider'
 import Ground from './pages/ground/Ground'
 import LoginPage from './pages/login/login'
 import FoodPage from './pages/food/food'
+import UserPage from './pages/user/user'
 const MyContent = () => {
   return (
     <div className='content radius-min'>
@@ -42,6 +43,7 @@ function App() {
           <Route path='/' element={<Ground />} />
           <Route path='ground' element={<Ground />} />
           <Route path='food' element={<FoodPage />} />
+          <Route path='user' element={<UserPage />} />
         </Route>
         <Route path='/login' element={<LoginPage />} />
       </Routes>
