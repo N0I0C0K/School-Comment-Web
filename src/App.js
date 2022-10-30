@@ -5,6 +5,7 @@ import Ground from './pages/ground/Ground'
 import LoginPage from './pages/login/login'
 import FoodPage from './pages/food/food'
 import UserPage from './pages/user/user'
+import { useEffect, useState } from 'react'
 const MyContent = () => {
   return (
     <div className='content radius-min'>
@@ -18,8 +19,25 @@ const MyFooter = () => {
 }
 
 const LeftSider = () => {
+  const [left, setLeft] = useState()
+  const handleResize = () => {
+    const width = window.innerWidth
+    setLeft(width / 2 - width * 0.2 - 270)
+  }
+  useEffect(() => {
+    handleResize()
+    window.addEventListener('resize', handleResize)
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  })
   return (
-    <div className='left-sider radius-min'>
+    <div
+      style={{
+        left: `${left}px`,
+      }}
+      className='left-sider radius-min'
+    >
       <MyLeftSider />
     </div>
   )

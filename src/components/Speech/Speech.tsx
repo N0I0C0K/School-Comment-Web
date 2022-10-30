@@ -16,37 +16,53 @@ import {
   DislikeOutlined,
   CommentOutlined,
 } from '@ant-design/icons'
-
-import { v4 as uuid } from 'uuid'
+import React, { FC } from 'react'
+//import { v4 as uuid } from 'uuid'
 import { useState } from 'react'
 import './Speech.css'
 const { TextArea } = Input
 
-const Editor = ({ onChange, onSubmit, submitting, value }) => (
-  <>
-    <Form.Item>
-      <TextArea
-        style={{ borderRadius: '20px' }}
-        rows={4}
-        onChange={onChange}
-        value={value}
-      />
-    </Form.Item>
-    <Form.Item>
-      <Button
-        htmlType='submit'
-        style={{ borderRadius: '20px' }}
-        loading={submitting}
-        onClick={onSubmit}
-        type='primary'
-      >
-        Add Comment
-      </Button>
-    </Form.Item>
-  </>
-)
+const Editor: FC<{
+  onChange?: any
+  onSubmit?: any
+  submitting?: boolean
+  value?: string
+}> = ({ onChange, onSubmit, submitting, value }) => {
+  return (
+    <>
+      <Form.Item>
+        <TextArea
+          style={{ borderRadius: '20px' }}
+          rows={4}
+          onChange={onChange}
+          value={value}
+        />
+      </Form.Item>
+      <Form.Item>
+        <Button
+          htmlType='submit'
+          style={{ borderRadius: '20px' }}
+          loading={submitting}
+          onClick={onSubmit}
+          type='primary'
+        >
+          Add Comment
+        </Button>
+      </Form.Item>
+    </>
+  )
+}
 
-const CommentList = ({ comments }) => {
+interface CommentInter {
+  author: string
+  avatar: string
+  content: any
+  datetime: string
+}
+
+const CommentList: FC<{
+  comments: Array<CommentInter>
+}> = ({ comments }) => {
   return (
     <List
       dataSource={comments}
@@ -56,14 +72,14 @@ const CommentList = ({ comments }) => {
   )
 }
 
-const Speech = ({
-  username,
-  userAvatar,
-  speechContent,
-  speechDate,
-  imgs,
-  comments,
-}) => {
+const Speech: FC<{
+  username: string
+  userAvatar: string
+  speechContent: string
+  speechDate: string
+  imgs: Array<string>
+  comments: Array<CommentInter>
+}> = ({ username, userAvatar, speechContent, speechDate, imgs, comments }) => {
   const [openComment, setOpenComment] = useState(false)
   const [comComments, setComments] = useState(comments)
   const [val, setVal] = useState('')
@@ -83,7 +99,7 @@ const Speech = ({
   }
 
   return (
-    <Card className='speech'>
+    <div className='speech'>
       <Avatar size='large' src={userAvatar} />
       <p className='username'>{username}</p>
       <p className='speech-content'>{speechContent}</p>
@@ -118,7 +134,7 @@ const Speech = ({
             }
             content={
               <Editor
-                onChange={(e) => {
+                onChange={(e: any) => {
                   setVal(e.target.value)
                 }}
                 onSubmit={AddComment}
@@ -128,7 +144,7 @@ const Speech = ({
           />
         </div>
       )}
-    </Card>
+    </div>
   )
 }
 

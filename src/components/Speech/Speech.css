@@ -1,10 +1,16 @@
 .speech {
   margin-bottom: 40px;
+  padding: 23px;
   width: 100%;
+  background-color: #fff;
   border-radius: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  transition: 2s;
 }
+
+/* .speech :hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+} */
+
 .speech .username {
   display: inline-block;
   cursor: pointer;
